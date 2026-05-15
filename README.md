@@ -1,173 +1,198 @@
 # 💳 Card Validator Senior
 
-Validador de bandeiras de cartões de crédito desenvolvido com foco em arquitetura limpa, boas práticas e validação inteligente de BINs (Bank Identification Number).
+Sistema profissional de validação de cartões de crédito desenvolvido com Node.js, Express e React.
+
+O projeto identifica a bandeira do cartão, valida números utilizando o algoritmo de Luhn e fornece uma API REST completa integrada com frontend moderno.
 
 ---
 
-## 🚀 Funcionalidades
+# 🚀 Tecnologias utilizadas
 
-- ✅ Identificação automática da bandeira do cartão
-- ✅ Suporte para múltiplas bandeiras
-- ✅ Validação através de Regex
-- ✅ Código organizado em padrão profissional
-- ✅ Estrutura escalável
-- ✅ Tratamento de erros
-- ✅ Interface simples e intuitiva
-- ✅ Fácil manutenção
+## Backend
+- Node.js
+- Express
+- Cors
+- Dotenv
+- Jest
+- Supertest
+
+## Frontend
+- React
+- Vite
+- Axios
 
 ---
 
-## 🏦 Bandeiras suportadas
+# ✨ Funcionalidades
+
+✅ Identificação de bandeira do cartão  
+✅ Validação utilizando algoritmo de Luhn  
+✅ API REST completa  
+✅ Frontend moderno e responsivo  
+✅ Estrutura profissional  
+✅ Testes automatizados  
+✅ Integração frontend + backend  
+
+---
+
+# 💳 Bandeiras suportadas
 
 - Visa
 - MasterCard
-- Elo
 - American Express
+- Elo
 - Hipercard
-- Diners Club
 - Discover
-- JCB
-- Aura
 
 ---
 
-## 📂 Estrutura do Projeto
+# 📁 Estrutura do projeto
 
 ```bash
 card-validator-senior/
 │
-├── src/
-│   ├── services/
-│   │   └── cardValidator.js
-│   │
-│   ├── utils/
-│   │   └── regexPatterns.js
-│   │
-│   ├── styles/
-│   │   └── style.css
-│   │
-│   ├── app.js
-│   │
-│   └── index.html
+├── backend/
 │
-├── assets/
-│
-├── README.md
-│
-├── package.json
-│
-└── .gitignore
+└── frontend/
 ```
 
 ---
 
-## 🛠️ Tecnologias utilizadas
+# ⚙️ Como executar o projeto
 
-- HTML5
-- CSS3
-- JavaScript ES6+
-- Git
-- GitHub
+## 🔥 Backend
 
----
-
-## ⚙️ Como executar o projeto
-
-### 1. Clone o repositório
+Entre na pasta backend:
 
 ```bash
-git clone https://github.com/RafaelaSommer/card-validator-senior.git
+cd backend
 ```
 
-### 2. Entre na pasta
+Instale as dependências:
 
 ```bash
-cd card-validator-senior
+npm install
 ```
 
-### 3. Execute o projeto
-
-Abra o arquivo:
+Execute o servidor:
 
 ```bash
-index.html
+npm run dev
 ```
 
-ou utilize uma extensão como:
-
-- Live Server (VS Code)
-
----
-
-## 🧠 Como funciona a validação
-
-O sistema identifica a bandeira através dos números iniciais do cartão utilizando expressões regulares (Regex).
-
-Exemplo:
-
-| Bandeira | Prefixo |
-|---|---|
-| Visa | 4 |
-| MasterCard | 51-55 |
-| American Express | 34 ou 37 |
-
----
-
-## 📸 Preview
-
-```txt
-Número do cartão: 4111111111111111
-Bandeira identificada: VISA
-```
-
----
-
-## 📌 Melhorias futuras
-
-- [ ] Implementar algoritmo de Luhn
-- [ ] Adicionar testes automatizados
-- [ ] Criar versão em React
-- [ ] Adicionar API de validação
-- [ ] Deploy online
-
----
-
-## 🤝 Contribuição
-
-Contribuições são bem-vindas.
-
-1. Faça um Fork
-2. Crie uma branch
+Servidor rodando em:
 
 ```bash
-git checkout -b minha-feature
+http://localhost:3000
 ```
-
-3. Commit suas alterações
-
-```bash
-git commit -m "Minha nova feature"
-```
-
-4. Push na branch
-
-```bash
-git push origin minha-feature
-```
-
-5. Abra um Pull Request
 
 ---
 
-## 📄 Licença
+## 🎨 Frontend
 
-Este projeto está sob a licença MIT.
+Entre na pasta frontend:
+
+```bash
+cd frontend
+```
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Execute o projeto:
+
+```bash
+npm run dev
+```
+
+Frontend rodando em:
+
+```bash
+http://localhost:5173
+```
 
 ---
+
+# 🧪 Testes
+
+Para executar os testes:
+
+```bash
+npm test
+```
+
+---
+
+# 🌐 Endpoint da API
+
+## Validar cartão
+
+```http
+POST /api/card/validate
+```
+
+### Body
+
+```json
+{
+  "cardNumber": "4111111111111111"
+}
+```
+
+### Resposta
+
+```json
+{
+  "flag": "Visa",
+  "isValid": true
+}
+```
+
+---
+
+# 📸 Preview
+
+## Tela principal
+
+- Campo para inserir cartão
+- Detecção automática de bandeira
+- Resultado em tempo real
+
+---
+
+# 📈 Melhorias futuras
+
+- Integração com BIN Lookup API
+- Docker
+- Swagger
+- CI/CD com GitHub Actions
+- Deploy automatizado
+- Dashboard administrativo
+- Tema dark/light
+- Máscara automática de cartão
+
+---
+
+# ☁️ Deploy
+
+## Backend
+Deploy realizado no Render.
+
+## Frontend
+Deploy realizado no Vercel.
+
+---
+
+# 📄 Licença
+
+Este projeto está sob licença MIT.
 
 ## 👩‍💻 Desenvolvedora
 
-Projeto desenvolvido por Rafaela Sommer 🚀
+Projeto desenvolvido por Rafaela Sommer Gonçalves 🚀
 
 GitHub:
-https://github.com/RafaelaSommer# card-validator-senior
+https://github.com/RafaelaSommer
