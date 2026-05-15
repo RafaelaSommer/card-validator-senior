@@ -1,18 +1,22 @@
-function validateLuhn(number) {
-  const digits = number.replace(/\D/g, "");
+function validateLuhn(cardNumber) {
+  const cleaned = cardNumber.replace(/\D/g, "");
+
   let sum = 0;
-  let toggle = false;
+  let shouldDouble = false;
 
-  for (let i = digits.length - 1; i >= 0; i--) {
-    let n = parseInt(digits[i]);
+  for (let i = cleaned.length - 1; i >= 0; i--) {
+    let digit = parseInt(cleaned[i]);
 
-    if (toggle) {
-      n *= 2;
-      if (n > 9) n -= 9;
+    if (shouldDouble) {
+      digit *= 2;
+
+      if (digit > 9) {
+        digit -= 9;
+      }
     }
 
-    sum += n;
-    toggle = !toggle;
+    sum += digit;
+    shouldDouble = !shouldDouble;
   }
 
   return sum % 10 === 0;
