@@ -1,17 +1,29 @@
 import { useState } from "react";
 import axios from "axios";
+import {
+  FaCcVisa,
+  FaCcMastercard,
+  FaCcAmex
+} from "react-icons/fa";
 
 export default function App() {
 
   const [cardNumber, setCardNumber] = useState("");
   const [result, setResult] = useState(null);
 
-  async function validateCard() {
+  function formatCardNumber(value) {
 
-    if (!cardNumber) {
-      alert("Digite um cartão");
-      return;
-    }
+    return value
+      .replace(/\D/g, "")
+      .replace(/(\d{4})(?=\d)/g, "$1 ");
+  }
+
+  function handleChange(e) {
+    const formatted = formatCardNumber(e.target.value);
+    setCardNumber(formatted);
+  }
+
+  async function validateCard() {
 
     try {
 
@@ -32,18 +44,57 @@ export default function App() {
     }
   }
 
+  function renderFlagIcon() {
+
+    if (!result) return null;
+
+    switch (result.flag) {
+
+      case "Visa":
+        return <FaCcVisa size={50} />;
+
+      case "MasterCard":
+        return <FaCcMastercard size={50} />;
+
+      case "AmericanExpress":
+        return <FaCcAmex size={50} />;
+
+      default:
+        return "💳";
+    }
+  }
+
   return (
     <div className="container">
 
-      <div className="card-box">
+      <div className="credit-card">
 
-        <h1>💳 Card Validator</h1>
+        <div className="card-top">
+          <span>Card Validator</span>
+          {renderFlagIcon()}
+        </div>
+
+        <div className="card-number">
+          {cardNumber || "0000 0000 0000 0000"}
+        </div>
+
+        <div className="card-footer">
+          <span>VALID THRU</span>
+          <span>12/30</span>
+        </div>
+
+      </div>
+
+      <div className="form-box">
+
+        <h1>💳 Validador Premium</h1>
 
         <input
           type="text"
-          placeholder="Digite o número do cartão"
+          placeholder="Digite o cartão"
+          maxLength={19}
           value={cardNumber}
-          onChange={(e) => setCardNumber(e.target.value)}
+          onChange={handleChange}
         />
 
         <button onClick={validateCard}>
@@ -51,13 +102,8 @@ export default function App() {
         </button>
 
         {result && (
-          <div className="result">
 
-            <p>
-              <strong>Número:</strong>
-              {" "}
-              {result.cardNumber}
-            </p>
+          <div className="result">
 
             <p>
               <strong>Bandeira:</strong>
@@ -69,11 +115,12 @@ export default function App() {
               <strong>Status:</strong>
               {" "}
               {result.isValid
-                ? "✅ Válido"
-                : "❌ Inválido"}
+                ? "✅ Cartão válido"
+                : "❌ Cartão inválido"}
             </p>
 
           </div>
+
         )}
 
       </div>
