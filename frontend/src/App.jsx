@@ -5,6 +5,8 @@ import {
   FaCcMastercard,
   FaCcAmex
 } from "react-icons/fa";
+const [cvv, setCvv] = useState("");
+const [expiry, setExpiry] = useState("");
 
 export default function App() {
 
@@ -90,13 +92,20 @@ export default function App() {
         <h1>💳 Validador Premium</h1>
 
         <input
-          type="text"
-          placeholder="Digite o cartão"
-          maxLength={19}
-          value={cardNumber}
-          onChange={handleChange}
-        />
+  type="text"
+  placeholder="CVV"
+  maxLength={3}
+  value={cvv}
+  onChange={(e) => setCvv(e.target.value)}
+/>
 
+<input
+  type="text"
+  placeholder="MM/AA"
+  maxLength={5}
+  value={expiry}
+  onChange={(e) => setExpiry(e.target.value)}
+/>
         <button onClick={validateCard}>
           Validar Cartão
         </button>
