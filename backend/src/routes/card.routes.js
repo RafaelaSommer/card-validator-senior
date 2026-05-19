@@ -1,16 +1,20 @@
-const express = require("express");
-const router = express.Router();
-const { validateCard } = require("../services/card.service");
-
-router.post("/validate", (req, res) => {
-  const { cardNumber } = req.body;
-
-  if (!cardNumber) {
-    return res.status(400).json({ error: "Card number required" });
-  }
-
-  const result = validateCard(cardNumber);
-  res.json(result);
-});
-
-module.exports = router;
+/**
+ * @swagger
+ * /api/card/validate:
+ *   post:
+ *     summary: Valida cartão
+ *     tags:
+ *       - Cards
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             properties:
+ *               cardNumber:
+ *                 type: string
+ *     responses:
+ *       200:
+ *         description: Cartão validado
+ */
