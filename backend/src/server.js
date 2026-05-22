@@ -2,15 +2,16 @@ const express = require("express");
 const cors = require("cors");
 require("dotenv").config();
 
-const cardRoutes = require("./routes/card.routes");
-
 const swaggerUi = require("swagger-ui-express");
 const swaggerSpec = require("./swagger");
+
+const cardRoutes = require("./routes/card.routes");
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+
 app.use(
   "/docs",
   swaggerUi.serve,

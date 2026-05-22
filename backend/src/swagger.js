@@ -1,14 +1,13 @@
 const swaggerJsdoc = require("swagger-jsdoc");
 
 const options = {
-
   definition: {
     openapi: "3.0.0",
 
     info: {
       title: "Card Validator API",
       version: "1.0.0",
-      description: "API profissional para validação de cartões"
+      description: "API profissional de validação de cartões"
     },
 
     servers: [
