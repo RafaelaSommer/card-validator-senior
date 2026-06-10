@@ -6,27 +6,20 @@ on:
       - main
 
 jobs:
-
   test:
-
     runs-on: ubuntu-latest
 
     steps:
-
       - uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
-
+      - uses: actions/setup-node@v4
         with:
           node-version: 20
 
       - name: Install Backend
-        run: |
-          cd backend
-          npm install
+        working-directory: backend
+        run: npm ci
 
       - name: Run Tests
-        run: |
-          cd backend
-          npm test
+        working-directory: backend
+        run: npx jest
