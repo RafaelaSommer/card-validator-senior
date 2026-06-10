@@ -166,7 +166,7 @@ export default function App() {
 
       <div className="form-box">
 
-        <h1>💳 Validador de Bandeiras</h1>
+        <h1>💳 Validador de Bandeiras de Cartão de Crédito</h1>
 
         <input
           type="text"
